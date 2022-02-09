@@ -138,6 +138,8 @@ module ActiveStorage
 
         if config_choice = Rails.configuration.active_storage.service
           ActiveStorage::Blob.service = ActiveStorage::Blob.services.fetch(config_choice)
+        else
+          raise("Specify Active Storage service name by adding config.active_storage.service to config/environments/#{Rails.env}.rb.")
         end
       end
     end
